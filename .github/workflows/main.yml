@@ -83,17 +83,11 @@ jobs:
         with:
           name: sonar-distribution
 
-      - name: Debug home
-        run: ls /home/runner/work/sonarqube/sonarqube
-        
-      - name: debug .
-        run: ls
-
       - name: Unzip distribution
-        run: unzip sonar-application/build/distributions/sonar-application-*.zip
+        run: unzip sonar-application-*.zip
 
       - name: Start the server
-        run: sonar-application/build/distributions/sonarqube-*/bin/linux-x86-64/sonar.sh start
+        run: sonarqube-*/bin/linux-x86-64/sonar.sh start
 
       - name: Curl sonarqube server
         run: curl http://localhost:9000
