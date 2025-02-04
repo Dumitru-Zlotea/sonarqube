@@ -83,6 +83,9 @@ jobs:
         with:
           name: sonar-distribution
 
+      - name: Debug
+        run: ll .
+
       - name: Unzip distribution
         run: unzip sonar-application/build/distributions/sonar-application-*.zip
 
