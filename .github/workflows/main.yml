@@ -87,4 +87,7 @@ jobs:
         run: unzip sonar-application-*.zip
 
       - name: Start the server
-        run: sonarqube-*/bin/linux-x86-64/sonar.sh start && sleep 10 && curl http://localhost:9000
+        run: |
+          sonarqube-*/bin/linux-x86-64/sonar.sh start
+          sleep 60
+          curl http://localhost:9000
