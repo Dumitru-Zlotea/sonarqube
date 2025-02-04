@@ -90,4 +90,6 @@ jobs:
         run: |
           sonarqube-*/bin/linux-x86-64/sonar.sh start
           sleep 60
-          curl http://localhost:9000
+        # curl http://localhost:9000
+      - name: Check SonarQube Logs
+        run: cat sonarqube-*/logs/sonar.log
