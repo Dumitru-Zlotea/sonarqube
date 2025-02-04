@@ -83,8 +83,11 @@ jobs:
         with:
           name: sonar-distribution
 
-      - name: Debug
-        run: ll .
+      - name: Debug home
+        run: ls /home/runner/work/sonarqube/sonarqube
+        
+      - name: debug .
+        run: ls
 
       - name: Unzip distribution
         run: unzip sonar-application/build/distributions/sonar-application-*.zip
