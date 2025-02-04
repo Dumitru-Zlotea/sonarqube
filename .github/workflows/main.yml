@@ -90,4 +90,4 @@ jobs:
         run: sonarqube-*/bin/linux-x86-64/sonar.sh start
 
       - name: Curl sonarqube server
-        run: curl http://localhost:9000
+        run: sleep 10 && curl http://localhost:9000
