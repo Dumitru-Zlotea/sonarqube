@@ -48,7 +48,6 @@ jobs:
 
 
   test:
-    if: ${{ true == false }}  # Skip test for now
     needs: build
     runs-on: ubuntu-latest
 
@@ -69,7 +68,9 @@ jobs:
 
 
   start-sonarqube:
-    needs: build
+    needs: 
+      - build
+      - test
     runs-on: ubuntu-latest
 
     steps:
@@ -87,9 +88,4 @@ jobs:
         run: unzip sonar-application-*.zip
 
       - name: Start the server
-        run: |
-          sonarqube-*/bin/linux-x86-64/sonar.sh start
-          sleep 60
-        # curl http://localhost:9000
-      - name: Check SonarQube Logs
-        run: cat sonarqube-*/logs/sonar.log
+        run: sonarqube-*/bin/linux-x86-64/sonar.sh start
