@@ -63,6 +63,11 @@ jobs:
           java-version: 21
           distribution: 'temurin'
 
+      - name: Download build artifact
+        uses: actions/download-artifact@v4 
+        with:
+          name: sonar-distribution
+
       - name: Test the build
         run: ./gradlew test
 
