@@ -68,8 +68,14 @@ jobs:
         with:
           name: sonar-distribution
 
+      - name: Unzip distribution
+        run: unzip sonar-application-*.zip
+
       - name: Test the build
         run: ./gradlew test
+
+      - name: Output test results
+        run: grep -B 1 -A 1 successful sonar-scanner-engine/build/reports/tests/test/index.html
 
 
   start-sonarqube:
