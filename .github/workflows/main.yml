@@ -69,10 +69,10 @@ jobs:
           name: sonar-distribution
 
       - name: Unzip distribution
-        run: unzip sonar-application-*.zip && mv sonar-application/build sonar-scanner-engine/
+        run: unzip sonar-application-*.zip && mv sonarqube-* ./sonar-application/build/distributions/
 
-      - name: Run tests without rebuilding
-        run: ./gradlew testClasses test
+      - name: Run tests 
+        run: ./gradlew test
 
       - name: Output test results
         run: grep -B 1 -A 1 successful sonar-scanner-engine/build/reports/tests/test/index.html
