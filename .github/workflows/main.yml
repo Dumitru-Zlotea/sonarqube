@@ -69,7 +69,7 @@ jobs:
           name: sonar-distribution
 
       - name: Unzip distribution
-        run: unzip sonar-application-*.zip && mv sonarqube-* ./sonar-application/build/distributions/
+        run: unzip sonar-application-*.zip && mkdir -p ./sonar-application/build/distributions/ && mv sonarqube-* ./sonar-application/build/distributions/
 
       - name: Run tests 
         run: ./gradlew test
