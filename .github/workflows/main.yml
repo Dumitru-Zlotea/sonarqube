@@ -74,9 +74,11 @@ jobs:
       - name: Run tests 
         run: ./gradlew test
 
-      - name: Output test results
+      - name: Output all test result
         run: grep -B 1 -A 1 successful sonar-scanner-engine/build/reports/tests/test/index.html
 
+      - name: Output new unit tests results
+        run: grep -B 1 -A 1 StringManipulationMediumIT sonar-scanner-engine/build/reports/tests/test/index.html
 
   start-sonarqube:
     needs: 
