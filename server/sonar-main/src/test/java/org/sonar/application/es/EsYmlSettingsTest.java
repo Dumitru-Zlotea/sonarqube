@@ -53,7 +53,8 @@ public class EsYmlSettingsTest {
   @Test
   public void if_file_is_not_writable_ISE_must_be_thrown() throws IOException {
     File yamlFile = temp.newFile();
-    yamlFile.setReadOnly();
+    //yamlFile.setReadOnly();
+    yamlFile.getParentFile().setWritable(false);
 
     assertThatThrownBy(() -> new EsYmlSettings(new HashMap<>()).writeToYmlSettingsFile(yamlFile))
       .isInstanceOf(IllegalStateException.class)
